@@ -17,4 +17,6 @@ def bb():
     print("bb")
     return"bb"
 
-app.run(debug=True)
+if__name__="__main__":
+    app.run(debug=True)
+
