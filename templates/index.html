@@ -1,11 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>사칙연산 계산기</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* 계산기 전체 컨테이너 */
+        .calculator-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* 개별 폼 카드 스타일 */
+        .calc-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .calc-card h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* 입력창 스타일 */
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        input[type="number"] {
+            width: 70px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .operator {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* 버튼 기본 스타일 */
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        /* 기능별 버튼 색상 포인트 */
+        .plus input[type="submit"] { background-color: #4CAF50; }
+        .plus input[type="submit"]:hover { background-color: #45a049; }
+
+        .minus input[type="submit"] { background-color: #2196F3; }
+        .minus input[type="submit"]:hover { background-color: #0b7dda; }
+
+        .multiply input[type="submit"] { background-color: #FF9800; }
+        .multiply input[type="submit"]:hover { background-color: #e68a00; }
+
+        .divide input[type="submit"] { background-color: #9C27B0; }
+        .divide input[type="submit"]:hover { background-color: #7B1FA2; }
+
+        /* 하단 링크 스타일 */
+        .links {
+            margin-top: 30px;
+        }
+        .links a {
+            text-decoration: none;
+            color: #666;
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+        .links a:hover {
+            text-decoration: underline;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>안녕하세요</h1>
+
+    <h1>🧮 사칙연산 계산기</h1>
+
+    <div class="calculator-container">
+
+        <form action="/calcu/plus" method="post" class="calc-card plus">
+            <h2>더하기 (+)</h2>
+            <div class="input-group">
+                <input type="number" name="num1" required placeholder="값1">
+                <span class="operator">+</span>
+                <input type="number" name="num2" required placeholder="값2">
+            </div>
+            <input type="submit" value="더하기 계산">
+        </form>
+
+        <form action="/calcu/minus" method="post" class="calc-card minus">
+            <h2>빼기 (-)</h2>
+            <div class="input-group">
+                <input type="number" name="num1" required placeholder="값1">
+                <span class="operator">-</span>
+                <input type="number" name="num2" required placeholder="값2">
+            </div>
+            <input type="submit" value="빼기 계산">
+        </form>
+
+        <form action="/calcu/multiply" method="post" class="calc-card multiply">
+            <h2>곱하기 (×)</h2>
+            <div class="input-group">
+                <input type="number" name="num1" required placeholder="값1">
+                <span class="operator">×</span>
+                <input type="number" name="num2" required placeholder="값2">
+            </div>
+            <input type="submit" value="곱하기 계산">
+        </form>
+
+        <form action="/calcu/divide" method="post" class="calc-card divide">
+            <h2>나누기 (÷)</h2>
+            <div class="input-group">
+                <input type="number" name="num1" required placeholder="값1">
+                <span class="operator">÷</span>
+                <input type="number" name="num2" required placeholder="값2">
+            </div>
+            <input type="submit" value="나누기 계산">
+        </form>
+
+    </div>
+
+    <div class="links">
+        <a href="/aa">aa페이지 이동</a>
+        <a href="/bb">bb페이지 이동</a>
+    </div>
+
 </body>
 </html>
